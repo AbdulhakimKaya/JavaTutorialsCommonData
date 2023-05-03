@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+img:hover {
+    opacity: 0.8;
+    transition: 2s all;
+}
+
+h2 {
+    color: darkolivegreen;
+}
+
+#h2_id {
+    background-color: antiquewhite;
+}
+
+.h2_class {
+    color: red;
+    padding: 1rem;
+}
+
+#div_id {
+    border: solid 1px rebeccapurple;
+    margin: 20px;
+    width: 400px;
+    height: 215px;
+}
+
+#div_id:hover {
+    cursor: pointer;
+    border: none;
+ }
+
+#param_id {
+    /*color: black;*/
+    /*color: #000;*/
+    /*color: #000000;*/
+    /*color: rgb(0,0,0);*/
+    color: rgba(0,0,0,0.4);
+    background-color: antiquewhite;
+    /*padding: 30px;  !* iç boşluk *!*/
+    /*padding-top: 30px;*/
+    /*padding-right: 30px;*/
+    /*padding-bottom: 30px;*/
+    /*padding-left: 30px;*/
+    padding: 10px 40px; /* x,y eksenleri sırasıyla */
+    /*margin: 30px;  !* dış boşluk *!*/
+    margin: 0 auto; /* x,y eksenleri sırasıyla - auto responsive olarak ayarlıyo */
+
+}
+
+.deneme {
+    border: solid 1px rebeccapurple;
+    padding: 12px;
+    width: 100%;
+    float: left;
+}
+
+/* RD: Responsive Design */
+
+@media screen and (min-width: 1px){
+    .deneme {
+        width: 100%;
+        float: left;
+    }
+}
+
+@media screen and (min-width: 600px){
+    .deneme {
+        width: 50%;
+        float: left;
+    }
+}
+
+@media screen and (min-width: 900px){
+    .deneme {
+        width: 33%;
+        float: left;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .deneme {
+        width: 25%;
+        float: left;
+    }
+}
