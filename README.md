@@ -65,8 +65,8 @@ Extensisons
 
 ---
 
-## Tecnology
-##FrontEnd
+## Tecnologies
+## FrontEnd
 - Html5
 - Css3
 - responsive design
@@ -101,7 +101,7 @@ Mysql
 Postgresql
 
 ---
-## dependency
+## Dependency
 Spring Web
 Spring Data JPA
 Spring Rest
