@@ -6,14 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
-import java.util.UUID;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Log4j2
-public class _02_ParalelProgramlama extends Thread {
+public class _02_ExtendsThread extends Thread {
 
     // Global variable
     private String threadName;
@@ -43,9 +41,9 @@ public class _02_ParalelProgramlama extends Thread {
 
     // PSVM
     public static void main(String[] args) throws InterruptedException {
-        _02_ParalelProgramlama thread1 = new _02_ParalelProgramlama("1.Thread");
-        _02_ParalelProgramlama thread2 = new _02_ParalelProgramlama("2.Thread");
-        _02_ParalelProgramlama thread3 = new _02_ParalelProgramlama("3.Thread");
+        _02_ExtendsThread thread1 = new _02_ExtendsThread("1.Thread");
+        _02_ExtendsThread thread2 = new _02_ExtendsThread("2.Thread");
+        _02_ExtendsThread thread3 = new _02_ExtendsThread("3.Thread");
 
 /*
         // Thread Information
