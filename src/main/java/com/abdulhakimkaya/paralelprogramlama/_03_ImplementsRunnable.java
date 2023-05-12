@@ -1,7 +1,7 @@
 package com.abdulhakimkaya.paralelprogramlama;
 
 // Eğer extends hakkını başka class kullanmışsa o zaman implements kullanılır
-public class _03_ImplementsRunnable extends ThreadBase implements Runnable{
+public class _03_ImplementsRunnable extends ThreadBase implements Runnable {
 
     // Constructor
     public _03_ImplementsRunnable(String threadName) {
