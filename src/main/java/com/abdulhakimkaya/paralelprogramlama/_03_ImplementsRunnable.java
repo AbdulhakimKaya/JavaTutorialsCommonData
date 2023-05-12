@@ -1,10 +1,10 @@
 package com.abdulhakimkaya.paralelprogramlama;
 
 // Eğer extends hakkını başka class kullanmışsa o zaman implements kullanılır
-public class _03_ParalelProgramlama extends ThreadBase implements Runnable{
+public class _03_ImplementsRunnable extends ThreadBase implements Runnable{
 
     // Constructor
-    public _03_ParalelProgramlama(String threadName) {
+    public _03_ImplementsRunnable(String threadName) {
         super(threadName);
     }
 
@@ -33,9 +33,9 @@ public class _03_ParalelProgramlama extends ThreadBase implements Runnable{
 
     // PSVM
     public static void main(String[] args) throws InterruptedException {
-        Thread thread1 = new Thread(new _03_ParalelProgramlama("1.Thread"));
-        Thread thread2 = new Thread(new _03_ParalelProgramlama("2.Thread"));
-        Thread thread3 = new Thread(new _03_ParalelProgramlama("3.Thread"));
+        Thread thread1 = new Thread(new _03_ImplementsRunnable("1.Thread"));
+        Thread thread2 = new Thread(new _03_ImplementsRunnable("2.Thread"));
+        Thread thread3 = new Thread(new _03_ImplementsRunnable("3.Thread"));
 
         // 1. Thread başlasın
         thread1.start();
