@@ -1,0 +1,13 @@
+html, body {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    background: -webkit-linear-gradient(right, #af4d98, #e5a9a9);
+}
+
+@media screen and (min-width: 769px) {
+    a {
+        width: 250px;
+    }
+}

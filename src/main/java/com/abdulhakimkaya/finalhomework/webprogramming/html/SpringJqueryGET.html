@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>User List</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../css/SpringJqueryGET.css">
+
+    <!-- Fontawesome CSS -->
+    <link href="../fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="../fontawesome/css/brands.css" rel="stylesheet">
+    <link href="../fontawesome/css/solid.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+
+    <!-- JQuery Ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+</head>
+
+<body>
+<section class="padding">
+    <div class="sticky-top bg-light rounded-4">
+        <h3 class="p-2 text-uppercase text-center">Kullanıcıların Listesi</h3>
+    </div>
+    <div class="table-responsive rounded-4" id="no-more-tables">
+        <table class="table bg-white" id="user_list_table">
+        </table>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        const GET_URL = "http://localhost:4444/api/v1/jquery/get";
+
+        $.get(GET_URL, function (data, status) {
+            if (status === "success") {
+                console.log(status + " ");
+                console.log(data);
+                console.log(data[0].id);
+                console.log(data[0].firstName);
+                console.log(data[0].lastName);
+                console.log(data[0].email);
+                console.log(data[0].password);
+                console.log(data[0].passwordConfirm);
+                console.log(data[0].createdDate);
+                userListTable(data);
+            }
+        }) //end get
+
+        let userListTable = (data) => {
+            let tableRow =
+                `
+                <caption>Kullanıcıların Listesi</caption>
+                <thead class="bg-dark text-light">
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">AD</th>
+                    <th scope="col">SOYAD</th>
+                    <th scope="col">EMAİL</th>
+                    <th scope="col">ŞİFRE</th>
+                    <th scope="col">ŞİFRE TEKRARI</th>
+                    <th scope="col">CREATED DATE</th>
+                  </tr>
+                </thead>
+                `;
+            for (let temp of data) {
+                console.log(temp)
+                tableRow +=
+                    `
+                <tbody>
+                  <tr>
+                    <td data-title="ID">${temp.id}</td>
+                    <td data-title="Ad">${temp.firstName}</td>
+                    <td data-title="Soyad">${temp.lastName}</td>
+                    <td data-title="Email">${temp.email}</td>
+                    <td data-title="Şifre">${temp.password}</td>
+                    <td data-title="Şifre Tekrarı">${temp.passwordConfirm}</td>
+                    <td data-title="Oluşturulma Tarihi">${temp.createdDate}</td>
+                  </tr>
+                </tbody>
+                `;
+            } //end for
+            document.getElementById("user_list_table").innerHTML = tableRow;
+        }// myDataList
+
+    }); //end ready
+</script>
+
+<!-- Bootstrap JS -->
+<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- External JS -->
+<script src="../js/template.js"></script>
+
+<!-- Fontawesome JS -->
+<script defer src="../fontawesome/js/brands.js"></script>
+<script defer src="../fontawesome/js/solid.js"></script>
+<script defer src="../fontawesome/js/fontawesome.js"></script>
+</body>
+</html>

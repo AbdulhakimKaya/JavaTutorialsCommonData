@@ -1,0 +1,41 @@
+html, body {
+    background: -webkit-linear-gradient(right, #af4d98, #e5a9a9);
+    font-family: 'Alata', sans-serif;
+}
+
+.padding {
+    padding: 50px;
+}
+
+@media only screen and (max-width:961px) {
+    .padding {
+        padding: 8px;
+    }
+    #no-more-tables tbody,
+    #no-more-tables tr,
+    #no-more-tables td {
+        display: block;
+    }
+    #no-more-tables thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    #no-more-tables td {
+        font-size: 12px;
+        position: relative;
+        padding-left: 40%;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+    #no-more-tables td:before {
+        content: attr(data-title);
+        position: absolute;
+        left: 6px;
+        font-weight: bold;
+    }
+    #no-more-tables tr {
+        border-bottom: 1px solid #ccc;
+    }
+}
+

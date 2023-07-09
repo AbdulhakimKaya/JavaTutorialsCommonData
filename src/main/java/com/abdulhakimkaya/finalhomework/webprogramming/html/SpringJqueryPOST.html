@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Login Register</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../css/SpringJqueryPOST.css">
+
+    <!-- Fontawesome CSS -->
+    <link href="../fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="../fontawesome/css/brands.css" rel="stylesheet">
+    <link href="../fontawesome/css/solid.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+
+    <!-- JQuery Ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="title-text">
+        <div class="title login">Giriş Yap</div>
+        <div class="title signup">Kayıt Ol</div>
+    </div>
+    <div class="form-container">
+        <div class="slide-controls">
+            <input class="account-radio" type="radio" name="slider" id="login" checked>
+            <input class="account-radio" type="radio" name="slider" id="signup">
+            <label for="login" class="slide login">Giriş Yap</label>
+            <label for="signup" class="slide signup">Kayıt Ol</label>
+            <div class="slide-tab"></div>
+        </div>
+        <div class="form-inner">
+            <!-- Login Form -->
+            <form method="post" class="login" id="login-form">
+                <div class="field">
+                    <input type="email"
+                            name="email"
+                            id="id_email_login"
+                            class="form-control"
+                            placeholder="E-Post Adresiniz"
+                            required>
+                </div>
+                <div class="field">
+                    <input type="password"
+                            name="password"
+                            id="id_password_login"
+                            class="form-control"
+                            placeholder="Şifreniz"
+                            required>
+                </div>
+                <div class="pass-link">
+                    <a class="ms-3 mt-1 text-decoration-none" href="#">Şifrenizi mi unuttunuz?</a>
+                </div>
+                <div class="field">
+                    <button type="submit" id="login-link">Giriş Yap</button>
+                </div>
+                <div class="signup-link">Üye değil misiniz?
+                    <a class="fw-bold text-decoration-none" href="#">Şimdi Kayıt Ol</a>
+                </div>
+            </form>
+
+            <!-- Register Form -->
+            <form method="post" class="signup" id="sign-up-form">
+                <div class="d-flex justify-content-center d-grid gap-3 mb-3 mt-3">
+                    <a href="#facebook" class="link-facebook">
+                        <i class="fa-brands fa-facebook fa-2xl"></i>
+                    </a>
+                    <a href="#google" class="link-google">
+                        <i class="fa-brands fa-google fa-2xl"></i>
+                    </a>
+                    <a href="#yandex" class="link-yandex">
+                        <i class="fa-brands fa-yandex-international fa-2xl"></i>
+                    </a>
+                </div>
+                <p class="text-center text-muted">veya email adresin ile üye ol</p>
+                <div class="field">
+                    <input type="text"
+                           name="ad_soyad"
+                           pattern="[A-Za-z]*"
+                           class="form-control"
+                           placeholder="Ad" required
+                           id="id_ad">
+                </div>
+                <div class="field">
+                    <input type="text"
+                           name="ad_soyad"
+                           pattern="[A-Za-z]*"
+                           class="form-control"
+                           placeholder="Soyad" required
+                           id="id_soyad">
+                </div>
+                <div class="field">
+                    <input type="email"
+                           name="email"
+                           class="form-control"
+                           placeholder="E-mail" required
+                           id="id_email">
+                </div>
+                <div class="field">
+                    <input type="password"
+                           name="password"
+                           class="form-control"
+                           placeholder="Parola" required
+                           id="id_password">
+                </div>
+                <div class="field">
+                    <input type="password"
+                           name="password_confirm"
+                           class="form-control"
+                           placeholder="Parola Tekrarı" required
+                           id="id_password_confirm">
+                </div>
+                <div class="field">
+                    <button id="kayit-ol-btn" type="submit">Kayıt Ol</button>
+                </div>
+                <div class="login-link">Üye misiniz?
+                    <a class="fw-bold text-decoration-none" href="#">Şimdi Giriş Yap</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="card mt-3">
+        <div class="card-body">
+            <h4 class="card-title">jQuery POST</h4>
+            <p id="feedback">Boş ...</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- FORM JQUERY POST -->
+<!-- GET http://localhost:4444/api/v1/jquery/get
+$.get(URL,callbackFunction) -->
+
+<!-- POST  http://localhost:4444/api/v1/jquery/post const URL = "http://localhost:4444/api/v1/jquery/post";
+$.post(URL,formData,callbackFunction) -->
+<script>
+    $(document).ready(function () {
+        //SUBMIT
+        $("#sign-up-form").submit(function (event) {
+            event.preventDefault();
+            let firstName, lastName, email, password, passwordConfirm;
+            firstName = $("#id_ad").val();
+            lastName = $("#id_soyad").val();
+            email = $("#id_email").val();
+            password = $("#id_password").val();
+            passwordConfirm = $("#id_password_confirm").val();
+            alert(firstName + "\n" + lastName + "\n" + email + "\n" + password + "\n" + passwordConfirm);
+            ajax_submit(firstName, lastName, email, password, passwordConfirm);
+        }); // end form
+
+        // AJAX
+        let ajax_submit = (firstNameValue, lastNameValue, emailValue, passwordValue, passwordConfirmValue) => {
+            //DTO
+            const JqueryDto = {
+                firstName: firstNameValue,
+                lastName: lastNameValue,
+                email: emailValue,
+                password: passwordValue,
+                passwordConfirm: passwordConfirmValue,
+            };
+
+            //Ajax
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "http://localhost:4444/api/v1/jquery/post",
+                data: JSON.stringify(JqueryDto),
+                dataType: 'json',
+                cache: false,
+                timeout: 600000,
+                success: function (data) {
+                    $("#feedback").html(
+                        'Response: ' +
+                        JSON.stringify(data.id) + "\n" +
+                        JSON.stringify(data.firstName) + "\n" +
+                        JSON.stringify(data.lastName) + "\n" +
+                        JSON.stringify(data.email) + "\n" +
+                        JSON.stringify(data.password) + "\n" +
+                        JSON.stringify(data.passwordConfirm));
+                    if (data.status === 'OK') {
+                        alert("Tamamdır");
+                    }
+                },
+                error: function (text) {
+                    $("#feedback").html('Error: ' + text.status);
+                }
+            }); // end Ajax
+        }
+    }); //end ready
+</script>
+
+<!-- Bootstrap JS -->
+<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- External JS -->
+<script src="../js/template.js"></script>
+
+<!-- Fontawesome JS -->
+<script defer src="../fontawesome/js/brands.js"></script>
+<script defer src="../fontawesome/js/solid.js"></script>
+<script defer src="../fontawesome/js/fontawesome.js"></script>
+</body>
+</html>
